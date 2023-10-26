@@ -1,0 +1,119 @@
+next_permutation()
+sort()
+data structures
+binary trees
+binary search
+sort search
+depth first search
+swap()
+multisets
+upper_bound() and lower_bound() requires sorted data
+
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+vectors are C++ versions of lists
+v

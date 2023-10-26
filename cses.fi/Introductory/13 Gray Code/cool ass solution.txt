@@ -1,0 +1,28 @@
+void print(int n,int st) {
+    int i = st-1;
+    for (; i >= 0; i--) {
+        if (n & (1<<i))cout << 1;
+        else cout << 0;
+    }
+    cout << "\n";
+}
+void SLAY() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < pow(2,n); i++) {
+        print(i ^ (i >> 1),n);
+    }
+}
+ 
+int main()
+{
+    mosalm_on_the_code;
+    // freopen("input.txt", "rt", stdin);
+    // freopen("output.txt", "wt", stdout);
+    int T = 1; //cin >> T;
+    while (T--)
+    {
+        SLAY();
+    }
+    return 0;
+}
