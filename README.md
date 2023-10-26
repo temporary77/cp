@@ -1,2 +1,2 @@
 # ocom
- unorganized live documented torture
+the entire folder
