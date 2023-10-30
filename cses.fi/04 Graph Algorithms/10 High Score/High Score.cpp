@@ -27,34 +27,33 @@ int main() {
 			que.pop();
 			for (auto it : graph[bi]) {
 				if (dist[it.first] < dist[bi]+it.second) {
-					if (dist[it.first] != LLONG_MIN) {
-						
-					}
 					dist[it.first] = dist[bi]+it.second;
-					que.push({dist[bi]+it.second,it.first});
+					// printf("%d %d %lld\n",it.first,bi,dist[it.first]);
+					que.push({dist[it.first],it.first});
 				}
 			}  
 		}
+		// printf("%d %lld <<<<<<\n",i,dist[n-1]);
 	}
-	for (int i = 0; i < n; ++i) {
+	for (;!que.empty();) {
 		int t = que.size();
 		for (int j = 0; j < t; ++j) {
 			long long d;
 			int bi;
 			tie(d,bi) = que.front();
-			if (bi == n-1)goto g;
 			que.pop();
 			for (auto it : graph[bi]) {
-				if (dist[it.first] < dist[bi]+it.second) {
-					dist[it.first] = dist[bi]+it.second;
-					que.push({dist[bi]+it.second,it.first});
-				}
+				if (dist[it.first] == LLONG_MAX)continue;
+				dist[it.first] = LLONG_MAX;
+				que.push({dist[it.first],it.first});
 			}  
 		}
+		// printf("%d %lld <<<<<<\n",i,dist[n-1]);
 	}
-	printf("%lld",dist[n-1]);
-	return 0;
-	g:;
-	printf("-1");
+	if (dist[n-1] == LLONG_MAX) {
+		printf("-1");
+	} else {
+		printf("%lld",dist[n-1]);
+	}
 	return 0;
 }
