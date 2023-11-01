@@ -3,33 +3,26 @@ using namespace std;
 
 vector<int> graph[100001];
 int visited[100001];
-int mode;
-int knot;
 stack<int> stck;
+bool abort1 = 0;
 
 void dfs(int node) {
 	visited[node] = 1;
-	// printf("%d %d\n",node,t);
-	// printf("%d\n",node);
 	for (auto it : graph[node]) {
+		if (abort1)return;
 		if (visited[it] == 2)continue;
 		if (visited[it] == 1) {
-			knot = it;
-			stck.push(knot);
-			stck.push(node);
-			mode = 1;
+			abort1 = 1;
 			return;
 		}
-		dfs(it);
-		if (mode == 1) {
-			stck.push(node);
-			if (node == knot)mode = 2;
-			return;
-		}
-		if (mode == 2) {
-			return;
+		// printf("%d ? %d\n",node,it);
+		if (!visited[it]) {
+			// printf("%d -> %d\n",node,it);
+			dfs(it);
 		}
 	}
+	// printf("%d\n",node);
+	stck.push(node);
 	visited[node] = 2;
 	return;
 }
@@ -46,12 +39,11 @@ int main() {
 		if (!visited[i]) {
 			dfs(i);
 		}
-		if (mode == 2)goto g;
+		if (abort1) {
+			printf("IMPOSSIBLE");
+			return 0;
+		}
 	}
-	printf("IMPOSSIBLE");
-	return 0;
-	g:;
-	printf("%d\n",stck.size());
 	for (;!stck.empty();) {
 		printf("%d ",stck.top());
 		stck.pop();
