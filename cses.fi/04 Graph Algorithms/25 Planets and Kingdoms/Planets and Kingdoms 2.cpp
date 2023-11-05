@@ -10,7 +10,7 @@ int scc[100001];
 int timer = 1;
 int idx = 0;
 
-void dfs(int node) {
+void tarjan(int node) {
 	disc[node] = timer;
 	low[node] = timer;
 	stck.push(node);
@@ -20,7 +20,7 @@ void dfs(int node) {
 		if (disc[it] && !scc[it]) {
 			low[node] = min(low[node],disc[it]);
 		} else if (!disc[it]) {
-			dfs(it);
+			tarjan(it);
 			low[node] = min(low[node],low[it]);
 		}
 	}
@@ -48,7 +48,7 @@ int main() {
 	}
 	for (int i = 1; i <= n; ++i) {
 		if (!disc[i]) {
-			dfs(i);
+			tarjan(i);
 		}
 	}
 	printf("%d\n",idx);
