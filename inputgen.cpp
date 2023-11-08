@@ -7,6 +7,10 @@ int main() {
 	if (multi < 0) {
 		multi += LLONG_MAX;
 	}
+	for (int i = 0; i < 20000; ++i) {
+		printf("%d ",rand()%20-10);
+	}
+	return 0;
 	for (int a = 0; a < 1000; ++a) {
 		printf("%d <<<<<<<<<<\n",a);
 		++seed;
