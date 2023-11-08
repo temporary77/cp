@@ -16,8 +16,8 @@ void build() {
 	return;
 }
 
-int query(int x, int val) {
-	int res = 0;
+long long query(int x, int val) {
+	long long res = 0;
 	for (int a = x; a > 0; a -= a&-a) {
 		res += lower_bound(tree[a].begin(),tree[a].end(),val)-tree[a].begin();
 		// printf("%d %d %d\n",x,val,res);
@@ -36,11 +36,11 @@ int main() {
 		arr[i] -= k;
 	}
 	build();
-	int ans = 0;
+	long long ans = 0;
 	for (int i = 0; i < n; ++i) {
 		ans += query(i,arr[i]);	
 		// printf("%d\n",ans);
 	}
-	printf("%d",ans);
+	printf("%lld",ans);
 	return 0;
 }
