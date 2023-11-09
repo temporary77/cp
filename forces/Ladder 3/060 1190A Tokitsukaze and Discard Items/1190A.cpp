@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
+
 vector<long long> vctr;
- 
+
 int main() {
 	long long n, m, k;
 	scanf("%lld%lld%lld",&n,&m,&k);
@@ -12,19 +12,18 @@ int main() {
 		vctr.push_back(p);
 	}
 	long long cur = k;
-	auto page = vctr.begin();
+	auto it = vctr.begin();
 	int ans = 0;
 	for (;;) {
-		if (page == vctr.end())break;
-		auto it = upper_bound(page,vctr.end(),cur);
-		int idx = it-page;
-		if (idx == 0) {
-			cur += k;
+		if (it == vctr.end())break;
+		auto it2 = upper_bound(it,vctr.end(),cur);
+		if (it == it2) {
+			cur += ceil((*it2-cur)/(double)k)*k;
 		} else {
 			++ans;
-			cur += idx;
+			cur += it2-it;
+			it = it2;
 		}
-		page = it;
 	}
 	printf("%d",ans);
 	return 0;
