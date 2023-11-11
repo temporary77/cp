@@ -46,6 +46,10 @@ int main() {
 		printf("-1");
 		return 0;
 	}
+	if (ansi <= 0) {
+		printf("-1");
+		return 0;
+	}
 	printf("%lld",ansi);
 	return 0;
 }
