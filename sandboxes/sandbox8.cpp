@@ -32,9 +32,9 @@ int main() {
 	for (int i = 0; i < str.size()*k; ++i) {
 		vctr[str[i%str.size()]-'a'].push_back(i);
 	}
-	for (int i = 0; i < 26; ++i) {
-		for (int j = 1; j <= vctr[i].size(); ++j) {
-			update(j,i,1);
+	for (int i = 0; i < k*str.size(); ++i) {
+		for (int j = 0; j < 26; ++j) {
+			update(i+1,j,i);
 		}
 	}
 	int n;
@@ -43,19 +43,10 @@ int main() {
 		int a;
 		char c;
 		scanf("%d %c",&a,&c);
-		int l = 1;
-		int r = vctr[c-'a'].size();
-		for (;;) {
-			if (l >= r)break;
-			int m = (l+r)/2;
-			if (query(m,c-'a') >= a) {
-				r = m;
-			} else {
-				l = m+1;
-			}
-		}
-		removed[vctr[c-'a'][l-1]] = true;
-		update(l,c-'a',-1);
+		int idx = query(a,c-'a');
+		removed[vctr[c-'a'][idx]] = true;
+		printf("%d\n",idx);
+		update(idx+1,c-'a',-1);
 	}
 	for (int i = 0; i < str.size()*k; ++i) {
 		if (!removed[i]) {
