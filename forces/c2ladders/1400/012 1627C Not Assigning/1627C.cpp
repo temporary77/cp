@@ -1,9 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> graph[100001];
+vector<pair<int,int>> graph[100001];
 int ans[100001];
-vector<int> edges[100001];
+bool visited[100001];
+
+void dfs(int node, int c) {
+	visited[node] = true;
+	for (auto it : graph[node]) {
+		// printf("%d %d %d\n",node,it.first,it.second);
+		if (!visited[it.second]) {
+			ans[it.first] = c;
+			// printf("> %d %d\n",it.first,c);
+			dfs(it.second,((c-1)&1)+2);
+		}
+	}
+	return;
+}
 
 int main() {
 	int t;
@@ -14,23 +27,12 @@ int main() {
 		for (int i = 1; i <= n; ++i) {
 			graph[i].clear();
 		}
-		for (int i = 0; i < n-1; ++i) {
-			edges[i].clear();
-		}
 		bool check = true;
 		for (int i = 0; i < n-1; ++i) {
 			int u, v;
 			scanf("%d%d",&u,&v);
-			for (auto it : graph[u]) {
-				edges[i].push_back(it);
-				edges[it].push_back(i);
-			}
-			for (auto it : graph[v]) {
-				edges[i].push_back(it);
-				edges[it].push_back(i);
-			}
-			graph[u].push_back(i);
-			graph[v].push_back(i);
+			graph[u].push_back({i,v});
+			graph[v].push_back({i,u});
 			if (graph[u].size() > 2 || graph[v].size() > 2) {
 				check = false;
 			}
@@ -39,18 +41,15 @@ int main() {
 			printf("-1\n");
 			goto g;
 		}
-		fill(ans,ans+n,0);
-		for (int i = 0; i < n-1; ++i) {
-			if (!ans[i]) {
-				ans[i] = 2;
-				for (auto it : edges[i]) {
-					ans[it] = 3;
-				}
-			} else {
-				for (auto it : edges[i]) {
-					ans[it] = ((ans[i]-1)&1)+2;
-				}
+		fill(ans,ans+n-1,0);
+		fill(visited+1,visited+n+1,false);
+		for (int i = 1; i <= n; ++i) {
+			if (graph[i].size() == 1 && !visited[i]) {
+				// printf("%d ?\n",i);
+				dfs(i,2);
 			}
+		}
+		for (int i = 0; i < n-1; ++i) {
 			printf("%d ",ans[i]);
 		}
 		printf("\n");
