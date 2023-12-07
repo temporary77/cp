@@ -20,7 +20,7 @@ int main() {
 	for (int i = 1; i <= n; ++i) {
 		if (st.find(qs[i]) != st.end()) {
 			st.clear();
-			st.insert(0);
+			st.insert(qs[i-1]);
 			++ans;
 		}
 		st.insert(qs[i]);
