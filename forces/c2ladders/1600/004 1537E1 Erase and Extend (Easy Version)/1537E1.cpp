@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-set<char> st;
-
 int main() {
 	cin.tie(NULL);
 	int n, k;  
