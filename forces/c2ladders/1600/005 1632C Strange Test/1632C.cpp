@@ -11,37 +11,30 @@ int main() {
 			printf("%d\n",a-b);
 			continue;
 		}
-		int ans = 0;
-		for (int i = 0; i < 20; ++i) {
-			// printf("%d %d %d\n",a,b,i);
-			if (a&(1 << i) && !(b&(1 << i))) {
-				printf("%d %d %d\n",i,a,b);
-				for (int j = i+1; j < 20; ++j) {
-					if (!(a&(1 << j)) && b&(1 << j)) {
-						ans += (1 << i);
-						a += (1 << i);
-						break;
+		int ans = INT_MAX;
+		for (int bi = b; bi <= 2*b; ++bi) {
+			int ansi = bi-b;
+			int ai = a;
+			for (int i = 0; i < 20; ++i) {
+				if ((ai&(1 << i)) && !(bi&(1 << i))) {
+					int cur = 1 << i;
+					for (int j = i-1; j >= 0; --j) {
+						if (ai&(1 << j)) {
+							cur -= 1 << j;
+						}
 					}
+					ansi += cur;
+					ai += cur;
 				}
 			}
+			// printf("%d %d %d\n",ansi,a,b);
+			if (ai != bi) {
+				++ansi;
+				ansi += (ai|bi)-bi;
+			}
+			ans = min(ans,ansi);
 		}
-		if (a >= b) {
-			ans += a-b;
-			printf("%d\n",ans);
-			continue;	
-		}
-		++ans;
-		a |= b;
-		ans += a-b;
 		printf("%d\n",ans);
 	}
 	return 0;
 }
-
-/*
-1
-3
-2
-1
-23329
-*/

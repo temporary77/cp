@@ -15,8 +15,7 @@ int main() {
 		printf("%d <<<<<<<<<<\n",a);
 		++seed;
 		int n = 5;
-		printf("%d\n",n);
-		// vector<int> vctr = {1,1,1,2,2,2,3,3,3};
+		printf("%d\n",n);		// vector<int> vctr = {1,1,1,2,2,2,3,3,3};
 		// for (int i = 0; i < 1000; ++i) {
 		// 	random_shuffle(vctr.begin(),vctr.end());
 		// 	for (auto it : vctr) {
