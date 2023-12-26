@@ -2,6 +2,7 @@
 using namespace std;
 
 int arr[100001];
+int qs[100001];
 
 int main() {
 	int t;
@@ -9,22 +10,16 @@ int main() {
 	for (int ti = 0; ti < t; ++ti) {
 		int n, k, z;
 		scanf("%d%d%d",&n,&k,&z);
-		int sum = 0;
-		int held = k-2*z;
-		for (int i = 0; i < n; ++i) {
+		for (int i = 1; i <= n; ++i) {
 			scanf("%d",&arr[i]);
-			if (i < held)sum += arr[i];
+			qs[i] = qs[i-1]+arr[i];
 		}
-		int cur = arr[0];
-		sum -= arr[0];
 		int ans = 0;
-		for (int i = 1; i <= k; ++i) {
-			if (i < held)sum -= arr[i];
-			cur += arr[i];
-			int backwards = min((k-i+1)/2,z);
-			int forwards = min((k-i)/2,z);
-			// printf("%d %d %d %d %d %d\n",i,cur,sum,backwards,forwards,cur+backwards*arr[i-1]+forwards*arr[i]+sum);
-			ans = max(ans,cur+backwards*arr[i-1]+forwards*arr[i]+sum);
+		for (int i = 2; i <= k+1; ++i) {
+			int traverses = min(z,(k-i+2)/2);
+			int recoveries = min(traverses,(k-i+1)/2);
+			printf("%d %d %d %d\n",i,traverses,recoveries,qs[i]+arr[i-1]*traverses+arr[i]*recoveries+qs[k+1-2*traverses]-(traverses > recoveries ? qs[i-1] : qs[i]));
+			ans = max(ans,qs[i]+arr[i-1]*traverses+arr[i]*recoveries+qs[k+1-2*traverses]-(traverses > recoveries ? qs[i-1] : qs[i]));
 		}
 		printf("%d\n",ans);
 	}
